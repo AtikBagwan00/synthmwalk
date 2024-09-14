@@ -12,9 +12,13 @@ app.post('/search', (req, res) => {
   }).catch(err => res.status(500).send('An error occurred'));
 });
 
+// app.get('/display', (req, res) => {
+//   const message = req.query.message;
+//   res.send(`<div>${message}</div>`);
+// });
 app.get('/display', (req, res) => {
   const message = req.query.message;
-  res.send(`<div>${message}</div>`);
+  res.render('display', { message });
 });
 
 const PORT = process.env.PORT || 3000;
